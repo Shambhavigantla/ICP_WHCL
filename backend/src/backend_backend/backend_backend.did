@@ -1,0 +1,14 @@
+type User = record {
+    id: principal;
+    username: text;
+    email: text;
+};
+
+
+
+service : {
+    "greet": (text) -> (text) query;
+    "create_user": (text, text) -> (variant { Ok: User; Err: text });
+    "get_user": (principal) -> (opt User) query;
+    "get_my_principal": () -> (principal) query;
+}
